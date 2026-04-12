@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Integrated Craft Services LLC | Engineering & Fabrication</title>
+    <style>
+        :root {
+            --primary: #2c3e50; /* Deep Navy - Professional */
+            --accent: #e67e22;  /* Burnt Orange - Craft/Wood */
+            --light: #f4f7f6;
+            --dark: #1a252f;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+            margin: 0;
+        }
+
+        header {
+            background: var(--primary);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            border-bottom: 5px solid var(--accent);
+        }
+
+        h1 { margin: 0; font-size: 2.5rem; letter-spacing: 1px; }
+        p.subtitle { font-style: italic; font-size: 1.2rem; opacity: 0.9; }
+
+        .container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 600px) {
+            .grid { grid-template-columns: 1fr; }
+        }
+
+        .card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-top: 3px solid var(--primary);
+        }
+
+        .card h3 { color: var(--primary); margin-top: 0; }
+
+        .contact-section {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            margin-top: 1rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+            color: #7f8c8d;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Integrated Craft Services LLC</h1>
+    <p class="subtitle">Precision Engineering. Technical Research. Master Fabrication.</p>
+</header>
+
+<div class="container">
+    <section>
+        <h2>About the Firm</h2>
+        <p>
+            Integrated Craft Services LLC bridges the gap between high-level mechanical engineering and physical execution. 
+            With over 14 years of experience in thermal engineering, experimental testing, and structural design, we provide 
+            data-driven solutions for complex building technologies and high-performance envelope systems.
+        </p>
+    </section>
+
+    <div class="grid">
+        <div class="card">
+            <h3>Engineering & R&D</h3>
+            <ul>
+                <li>Thermal Loading Analysis</li>
+                <li>Durability Testing & Validation</li>
+                <li>Experimental Setup Design</li>
+                <li>VIG Stress Evolution Research</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h3>Specialized Fabrication</h3>
+            <ul>
+                <li>Precision Measurement Systems</li>
+                <li>Custom Structural Components</li>
+                <li>Differential Pressure Chambers</li>
+                <li>Technical Woodworking</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<section class="contact-section">
+    <h2>Project Inquiry</h2>
+    <p>Currently accepting consulting engagements and RFP partnerships for 2026.</p>
+    <a href="mailto:info@integratedcraftservices.com" class="btn">Contact Us</a>
+</section>
+
+<footer>
+    &copy; 2026 Integrated Craft Services LLC | Highlands Ranch, Colorado
+</footer>
+
+</body>
+</html>
