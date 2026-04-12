@@ -3,136 +3,260 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Integrated Craft Services LLC | Engineering & Fabrication</title>
+    <title>Integrated Craft Services LLC | Precision Engineering & Craft</title>
+
     <style>
         :root {
-            --primary: #2c3e50; /* Deep Navy - Professional */
-            --accent: #e67e22;  /* Burnt Orange - Craft/Wood */
-            --light: #f4f7f6;
-            --dark: #1a252f;
+            --nav-bg: #ffffff;
+            --text-main: #1a1a1a;
+            --accent: #b8860b;
+            --bg-light: #f9f9f9;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--dark);
-            background-color: var(--light);
+            font-family: 'Helvetica Neue', Arial, sans-serif;
             margin: 0;
+            color: var(--text-main);
+            background-color: #fff;
+            line-height: 1.6;
         }
 
-        header {
-            background: var(--primary);
+        /* NAV */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 10%;
+            background: var(--nav-bg);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #eee;
+        }
+
+        .logo {
+            font-weight: bold;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* HERO */
+        .hero {
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
             color: white;
-            padding: 4rem 2rem;
-            text-align: center;
-            border-bottom: 5px solid var(--accent);
         }
 
-        h1 { margin: 0; font-size: 2.5rem; letter-spacing: 1px; }
-        p.subtitle { font-style: italic; font-size: 1.2rem; opacity: 0.9; }
+        .hero-slideshow {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
 
-        .container {
-            max-width: 900px;
-            margin: 2rem auto;
-            padding: 0 2rem;
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        /* DARK LEFT BAR */
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 45%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.65);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            padding-left: 10%;
+            z-index: 2;
+            max-width: 500px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        /* SERVICES */
+        .section {
+            padding: 80px 10%;
         }
 
         .grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            margin-top: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
         }
 
-        @media (max-width: 600px) {
-            .grid { grid-template-columns: 1fr; }
+        .item img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
         }
 
-        .card {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            border-top: 3px solid var(--primary);
+        .item:hover img {
+            transform: scale(1.02);
         }
 
-        .card h3 { color: var(--primary); margin-top: 0; }
-
-        .contact-section {
-            background: var(--dark);
-            color: white;
-            padding: 3rem 2rem;
-            text-align: center;
-            margin-top: 4rem;
-        }
-
-        .btn {
-            display: inline-block;
-            background: var(--accent);
-            color: white;
-            padding: 0.8rem 1.5rem;
-            text-decoration: none;
-            border-radius: 4px;
-            font-weight: bold;
-            margin-top: 1rem;
+        .item h3 {
+            margin-top: 20px;
+            font-weight: 500;
+            border-left: 3px solid var(--accent);
+            padding-left: 15px;
         }
 
         footer {
+            background: var(--bg-light);
+            padding: 60px 10%;
             text-align: center;
-            padding: 2rem;
-            font-size: 0.9rem;
-            color: #7f8c8d;
+            border-top: 1px solid #eee;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.8rem;
+            margin-top: 20px;
+        }
+
+        /* MOBILE */
+        @media (max-width: 768px) {
+
+            .hero {
+                height: auto;
+                min-height: 90vh;
+            }
+
+            .hero::before {
+                width: 100%;
+                background: rgba(0, 0, 0, 0.55);
+            }
+
+            .hero-content {
+                padding: 120px 20px 60px 20px;
+                max-width: 100%;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 8px;
+                padding: 15px 20px;
+                text-align: center;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .item img {
+                height: 260px;
+            }
         }
     </style>
 </head>
+
 <body>
 
-<header>
-    <h1>Integrated Craft Services LLC</h1>
-    <p class="subtitle">Precision Engineering. Technical Research. Master Fabrication.</p>
-</header>
+<nav>
+    <div class="logo">Integrated Craft Services</div>
+    <div>Consulting | Designing | Fabrication</div>
+</nav>
 
-<div class="container">
-    <section>
-        <h2>About the Firm</h2>
-        <p>
-            Integrated Craft Services LLC bridges the gap between high-level mechanical engineering and physical execution. 
-            With over 14 years of experience in thermal engineering, experimental testing, and structural design, we provide 
-            data-driven solutions for complex building technologies and high-performance envelope systems.
-        </p>
-    </section>
-
-    <div class="grid">
-        <div class="card">
-            <h3>Engineering & R&D</h3>
-            <ul>
-                <li>Thermal Loading Analysis</li>
-                <li>Durability Testing & Validation</li>
-                <li>Experimental Setup Design</li>
-                <li>VIG Stress Evolution Research</li>
-            </ul>
-        </div>
-        <div class="card">
-            <h3>Specialized Fabrication</h3>
-            <ul>
-                <li>Precision Measurement Systems</li>
-                <li>Custom Structural Components</li>
-                <li>Differential Pressure Chambers</li>
-                <li>Technical Woodworking</li>
-            </ul>
-        </div>
+<section class="hero">
+    <div class="hero-slideshow">
+        <img src="images/desk.png" class="slide active" alt="Desk build">
+        <img src="images/woodchair.png" class="slide" alt="Wood chair">
+        <img src="images/kingplatform.png" class="slide" alt="Platform bed">
     </div>
-</div>
 
-<section class="contact-section">
-    <h2>Project Inquiry</h2>
-    <p>Currently accepting consulting engagements and RFP partnerships for 2026.</p>
-    <a href="mailto:info@integratedcraftservices.com" class="btn">Contact Us</a>
+    <div class="hero-content">
+        <h1>Built from Ideas to Reality</h1>
+        <p>From design and prototyping to hands-on fabrication, we help turn concepts into real, working builds—done right and made to last.</p>
+        <a href="#contact" class="cta-btn">See What We Do</a>
+    </div>
 </section>
 
-<footer>
-    &copy; 2026 Integrated Craft Services LLC | Highlands Ranch, Colorado
+<section class="section">
+    <h2>Our Core Capabilities</h2>
+
+    <div class="grid">
+        <div class="item">
+            <img src="images/woodchair_dimensionDrawings.png" alt="Technical Design">
+            <h3>Technical Design</h3>
+            <p>From CAD modeling to structural analysis, we ensure every project is grounded in engineering principles.</p>
+        </div>
+
+        <div class="item">
+            <img src="images/woodchair.png" alt="Custom Fabrication">
+            <h3>Custom Fabrication</h3>
+            <p>Specializing in high-tolerance woodworking and mechanical assemblies built to last a lifetime.</p>
+        </div>
+
+        <div class="item">
+            <img src="images/TwinBed.png" alt="Prototyping & Problem Solving">
+            <h3>Prototyping & Problem Solving</h3>
+            <p>We take ideas into the shop to test, refine, and solve real-world challenges before final builds.</p>
+        </div>
+    </div>
+</section>
+
+<footer id="contact">
+    <h2>Let's discuss your next project.</h2>
+    <p>Highlands Ranch, Colorado</p>
+    <a href="mailto:info@integratedcraftservices.com" class="cta-btn">Contact Us</a>
+    <p style="margin-top: 40px; font-size: 0.7rem; color: #999;">
+        © 2026 Integrated Craft Services LLC.
+    </p>
 </footer>
+
+<script>
+    const slides = document.querySelectorAll('.slide');
+    let current = 0;
+
+    function showNextSlide() {
+        slides[current].classList.remove('active');
+        current = (current + 1) % slides.length;
+        slides[current].classList.add('active');
+    }
+
+    setInterval(showNextSlide, 4000);
+</script>
 
 </body>
 </html>
