@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Energy Forecast Report (HEFR) | Integrated Craft Services LLC</title>
+
+    <style>
+        :root {
+            --nav-bg: #ffffff;
+            --text-main: #1a1a1a;
+            --accent: #b8860b;
+            --bg-light: #f9f9f9;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            color: var(--text-main);
+            background-color: #fff;
+            line-height: 1.6;
+        }
+
+        /* NAV */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 10%;
+            background: var(--nav-bg);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #eee;
+        }
+
+        .logo {
+            font-weight: bold;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        
+        .logo a {
+            color: var(--text-main);
+            text-decoration: none;
+        }
+
+        /* HERO */
+        .page-header {
+            background: #1a1a1a;
+            color: white;
+            padding: 80px 10%;
+            position: relative;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            line-height: 1.1;
+            margin: 0 0 10px 0;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .page-header p {
+            color: #aaa;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+        }
+
+        /* SECTIONS */
+        .section {
+            padding: 80px 10%;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 30px;
+            border-left: 3px solid var(--accent);
+            padding-left: 15px;
+        }
+
+        .content-block {
+            max-width: 800px;
+            margin-bottom: 50px;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.8rem;
+            margin-top: 20px;
+        }
+
+        footer {
+            background: var(--bg-light);
+            padding: 60px 10%;
+            text-align: center;
+            border-top: 1px solid #eee;
+        }
+
+        /* MOBILE */
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2.2rem;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 8px;
+                padding: 15px 20px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<nav>
+    <div class="logo"><a href="https://integratedcraftservices.com/">Integrated Craft Services</a></div>
+    <div>Consulting | Designing | Fabrication | <span style="color: var(--accent); font-weight: bold;">HEFR</span></div>
+</nav>
+
+<header class="page-header">
+    <p>Data-Driven Building Science</p>
+    <h1>Home Energy Forecast Report</h1>
+</header>
+
+<section class="section">
+    <div class="content-block">
+        <h2>Precision Thermal Analysis</h2>
+        <p>
+            The Home Energy Forecast Report (HEFR) blends experimental building science with rigorous thermal-fluid modeling to optimize building envelopes, window performance, and HVAC efficiency. 
+        </p>
+        <p>
+            By leveraging advanced physics-based simulations alongside high-accuracy environmental data, we provide actionable, engineering-grade forecasting to minimize thermal losses and maximize long-term system durability.
+        </p>
+    </div>
+    
+    <div class="content-block" style="margin-top: 60px;">
+        <h2>What the Report Covers</h2>
+        <p>Whether analyzing fenestration performance under localized pressure and altitude changes or calculating complex whole-home heat transfer coefficients, our technical approach removes the guesswork from residential efficiency improvements.</p>
+        <a href="mailto:info@integratedcraftservices.com?subject=HEFR%20Inquiry" class="cta-btn">Request an Analysis</a>
+    </div>
+</section>
+
+<footer>
+    <p>Highlands Ranch, Colorado</p>
+    <p style="margin-top: 40px; font-size: 0.7rem; color: #999;">
+        © 2026 Integrated Craft Services LLC. All rights reserved.
+    </p>
+</footer>
+
+</body>
+</html>
