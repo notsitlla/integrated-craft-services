@@ -303,18 +303,6 @@
                 <input type="text" id="projectName" name="Project/Client Name" class="form-control" placeholder="e.g., Smith Residence" required>
             </div>
 
-            <div class="form-group">
-                <label>Is this project a new construction or a retrofit of an existing building?</label>
-                <div class="radio-checkbox-group">
-                    <label class="radio-checkbox-label">
-                        <input type="radio" name="Application Type" value="New Construction" onclick="toggleAgeField(false)" required> New Construction
-                    </label>
-                    <label class="radio-checkbox-label">
-                        <input type="radio" name="Application Type" value="Retrofit" onclick="toggleAgeField(true)"> Retrofit
-                    </label>
-                </div>
-            </div>
-
             <div class="form-group" id="ageFieldContainer" style="display: none;">
                 <label for="homeAge">What year was the house built?</label>
                 <input type="number" id="homeAge" name="Year Built" class="form-control" min="1700" max="2026" placeholder="e.g., 1994">
