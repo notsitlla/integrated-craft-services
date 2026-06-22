@@ -303,9 +303,44 @@
                 <input type="text" id="projectName" name="Project/Client Name" class="form-control" placeholder="e.g., Smith Residence" required>
             </div>
 
+            <div class="form-group">
+                <label>Is this project a new construction or a retrofit of an existing building?</label>
+                <div class="radio-checkbox-group">
+                    <label class="radio-checkbox-label">
+                        <input type="radio" name="Application Type" value="New Construction" onclick="toggleAgeField(false)" required> New Construction
+                    </label>
+                    <label class="radio-checkbox-label">
+                        <input type="radio" name="Application Type" value="Retrofit" onclick="toggleAgeField(true)"> Retrofit
+                    </label>
+                </div>
+            </div>
+
             <div class="form-group" id="ageFieldContainer" style="display: none;">
-                <label for="homeAge">What year was the house built?</label>
-                <input type="number" id="homeAge" name="Year Built" class="form-control" min="1700" max="2026" placeholder="e.g., 1994">
+                <label>What year was the house built?</label>
+                <div class="radio-checkbox-group">
+                    <label class="radio-checkbox-label"><input type="radio" name="Year Built" value="Before 1980"> Before 1980</label>
+                    <label class="radio-checkbox-label"><input type="radio" name="Year Built" value="1980–2000"> 1980–2000</label>
+                    <label class="radio-checkbox-label"><input type="radio" name="Year Built" value="2000–2010"> 2000–2010</label>
+                    <label class="radio-checkbox-label"><input type="radio" name="Year Built" value="2010–2020"> 2010–2020</label>
+                    <label class="radio-checkbox-label"><input type="radio" name="Year Built" value="After 2020"> After 2020</label>
+                    <label class="radio-checkbox-label"><input type="radio" name="Year Built" value="Unknown" checked> Unknown</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Building Type</label>
+                <div class="radio-checkbox-group">
+                    <label class="radio-checkbox-label"><input type="radio" name="Building Type" value="Single-family detached" checked> Single-family detached</label>
+                    <label class="radio-checkbox-label"><input type="radio" name="Building Type" value="Townhome"> Townhome</label>
+                    <label class="radio-checkbox-label"><input type="radio" name="Building Type" value="Duplex"> Duplex</label>
+                    <label class="radio-checkbox-label"><input type="radio" name="Building Type" value="Apartment/condo"> Apartment/condo</label>
+                    <label class="radio-checkbox-label"><input type="radio" name="Building Type" value="ADU"> ADU (Accessory Dwelling Unit)</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="floorArea">Conditioned Floor Area (sq ft)</label>
+                <input type="number" id="floorArea" name="Conditioned Floor Area (sqft)" class="form-control" placeholder="e.g., 2200" min="1">
             </div>
 
             <div class="form-group">
@@ -349,78 +384,36 @@
             </div>
 
             <div class="form-group">
+                <label>Ceiling Height</label>
+                <div class="radio-checkbox-group">
+                    <label class="radio-checkbox-label"><input type="radio" name="Ceiling Height" value="8 ft" checked> 8 ft</label>
+                    <label class="radio-checkbox-label"><input type="radio" name="Ceiling Height" value="9 ft"> 9 ft</label>
+                    <label class="radio-checkbox-label"><input type="radio" name="Ceiling Height" value="10+ ft"> 10+ ft</label>
+                </div>
+            </div>
+
+            <div class="form-group">
                 <label>If this is an apartment/condo unit, where is it located?</label>
                 <div class="radio-checkbox-group">
                     <label class="radio-checkbox-label"><input type="radio" name="Apartment Location" value="Top Floor"> Top Floor</label>
-                    <label class="radio-checkbox-label"><input type="radio" name="Apartment Location"> Middle Floor</label>
-                    <label class="radio-checkbox-label"><input type="radio" name="Apartment Location"> Bottom Floor</label>
+                    <label class="radio-checkbox-label"><input type="radio" name="Apartment Location" value="Middle Floor"> Middle Floor</label>
+                    <label class="radio-checkbox-label"><input type="radio" name="Apartment Location" value="Bottom Floor"> Bottom Floor</label>
                     <label class="radio-checkbox-label"><input type="radio" name="Apartment Location" value="N/A" checked> N/A (Single Family Home)</label>
                 </div>
             </div>
 
-            <div class="form-section-title">Windows & Doors</div>
-
+            <div class="form-section-title">Major Appliances</div>
             <div class="form-group">
-                <label>Which direction(s) do the primary windows face? (Select all that apply)</label>
+                <label>Select all major loads currently present in the home:</label>
                 <div class="radio-checkbox-group">
-                    <label class="radio-checkbox-label"><input type="checkbox" name="Orientation - North" value="Yes"> North</label>
-                    <label class="radio-checkbox-label"><input type="checkbox" name="Orientation - East" value="Yes"> East</label>
-                    <label class="radio-checkbox-label"><input type="checkbox" name="Orientation - South" value="Yes"> South</label>
-                    <label class="radio-checkbox-label"><input type="checkbox" name="Orientation - West" value="Yes"> West</label>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="windowCount">Approximately how many total windows are there in the home/unit?</label>
-                <input type="number" id="windowCount" name="Estimated Window Count" class="form-control" min="0" placeholder="e.g., 15">
-            </div>
-
-            <div class="form-group">
-                <label>What type of glass do the windows currently have?</label>
-                <div class="radio-checkbox-group">
-                    <label class="radio-checkbox-label"><input type="radio" name="Glass Type" value="Single-pane clear"> Single-pane clear</label>
-                    <label class="radio-checkbox-label"><input type="radio" name="Glass Type" value="Double-pane clear"> Double-pane clear</label>
-                    <label class="radio-checkbox-label"><input type="radio" name="Glass Type" value="Double-pane Low-E" checked> Double-pane Low-E</label>
-                    <label class="radio-checkbox-label"><input type="radio" name="Glass Type" value="Triple-pane"> Triple-pane</label>
-                    <label class="radio-checkbox-label"><input type="radio" name="Glass Type" value="I don't know"> I don't know</label>
-                </div>
-            </div>
-
-            <div class="form-section-title">Space Condition</div>
-
-            <div class="form-group">
-                <label>What type of system is used to heat the space?</label>
-                <div class="radio-checkbox-group">
-                    <label class="radio-checkbox-label"><input type="radio" name="Heating Type" value="Furnace (Gas/Propane)"> Furnace (Gas/Propane)</label>
-                    <label class="radio-checkbox-label"><input type="radio" name="Heating Type" value="Heat Pump (Electric)"> Heat Pump (Electric)</label>
-                    <label class="radio-checkbox-label"><input type="radio" name="Heating Type" value="Baseboard Electric"> Baseboard Electric</label>
-                    <label class="radio-checkbox-label"><input type="radio" name="Heating Type" value="Boiler/Radiator"> Boiler/Radiator</label>
-                    <label class="radio-checkbox-label"><input type="radio" name="Heating Type" value="None"> None</label>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label>What type of system is used to cool the space?</label>
-                <div class="radio-checkbox-group">
-                    <label class="radio-checkbox-label"><input type="radio" name="Cooling Type" value="Central Air Conditioning"> Central Air Conditioning</label>
-                    <label class="radio-checkbox-label"><input type="radio" name="Cooling Type" value="Air Source Heat Pump"> Air Source Heat Pump</label>
-                    <label class="radio-checkbox-label"><input type="radio" name="Cooling Type" value="Mini-Split Ductless AC"> Mini-Split Ductless AC</label>
-                    <label class="radio-checkbox-label"><input type="radio" name="Cooling Type" value="Window/Wall AC Units"> Window/Wall AC Units</label>
-                    <label class="radio-checkbox-label"><input type="radio" name="Cooling Type" value="None / Evaporative Cooler"> None / Evaporative Cooler</label>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label>What temperature do you normally set your thermostat to? (°F)</label>
-                <div class="inline-inputs">
-                    <div>
-                        <span style="font-size:0.8rem; color:#666;">Heating Season</span>
-                        <input type="text" name="Setpoint - Heating" class="form-control" placeholder="e.g., 68°F">
-                    </div>
-                    <div>
-                        <span style="font-size:0.8rem; color:#666;">Cooling Season</span>
-                        <input type="text" name="Setpoint - Cooling" class="form-control" placeholder="e.g., 72°F">
-                    </div>
+                    <label class="radio-checkbox-label"><input type="checkbox" name="Appliance - Electric oven" value="Yes"> Electric oven</label>
+                    <label class="radio-checkbox-label"><input type="checkbox" name="Appliance - Gas oven/range" value="Yes"> Gas oven/range</label>
+                    <label class="radio-checkbox-label"><input type="checkbox" name="Appliance - Electric dryer" value="Yes"> Electric dryer</label>
+                    <label class="radio-checkbox-label"><input type="checkbox" name="Appliance - Gas dryer" value="Yes"> Gas dryer</label>
+                    <label class="radio-checkbox-label"><input type="checkbox" name="Appliance - Dishwasher" value="Yes"> Dishwasher</label>
+                    <label class="radio-checkbox-label"><input type="checkbox" name="Appliance - Hot tub" value="Yes"> Hot tub</label>
+                    <label class="radio-checkbox-label"><input type="checkbox" name="Appliance - Pool" value="Yes"> Pool</label>
+                    <label class="radio-checkbox-label"><input type="checkbox" name="Appliance - Well pump" value="Yes"> Well pump</label>
                 </div>
             </div>
 
