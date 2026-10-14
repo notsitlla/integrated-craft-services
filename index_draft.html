@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Integrated Craft Services | Engineered Thinking. Crafted Solutions.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Caveat:wght@600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #121417;
+      --bg-card-dark: #1b1e23;
+      --bg-light: #fbfbfb;
+      --bg-warm-white: #ffffff;
+      --text-dark: #14171a;
+      --text-muted: #656b73;
+      --text-light: #f3f4f6;
+      --text-light-muted: #9ca3af;
+      --accent: #d8a25e;
+      --accent-hover: #c48e4b;
+      --border-dark: #2d333b;
+      --border-light: #e5e7eb;
+      --font-sans: 'Plus Jakarta Sans', sans-serif;
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --font-script: 'Caveat', cursive;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      color: var(--text-dark);
+      background-color: var(--bg-warm-white);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .section-tag {
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--text-muted);
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: 2.5rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      line-height: 1.2;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 13px 26px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-radius: 2px;
+      transition: all 0.25s ease;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background-color: var(--accent);
+      color: #1a1610;
+      border: 1px solid var(--accent);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--accent-hover);
+      border-color: var(--accent-hover);
+    }
+
+    .btn-outline-dark {
+      background-color: transparent;
+      color: #fff;
+      border: 1px solid var(--border-dark);
+    }
+
+    .btn-outline-dark:hover {
+      border-color: #6b7280;
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+
+    /* Header */
+    header {
+      background-color: var(--bg-dark);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 84px;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .logo-icon {
+      width: 40px;
+      height: 40px;
+    }
+
+    .logo-text h1 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      color: #ffffff;
+      text-transform: uppercase;
+    }
+
+    .logo-text p {
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      color: var(--text-light-muted);
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-link {
+      font-size: 0.85rem;
+      color: #d1d5db;
+      font-weight: 500;
+      transition: color 0.2s;
+      position: relative;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      color: #ffffff;
+    }
+
+    .nav-link.active::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: var(--accent);
+    }
+
+    /* Hero Section */
+    .hero-section {
+      background-color: var(--bg-dark);
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+      padding: 70px 0 100px;
+      border-bottom: 1px solid var(--border-dark);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 1.15fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .hero-content .section-tag {
+      color: #9ca3af;
+    }
+
+    .hero-title {
+      font-family: var(--font-serif);
+      font-size: 3.75rem;
+      line-height: 1.12;
+      margin: 12px 0 24px;
+      font-weight: 500;
+    }
+
+    .hero-title span {
+      color: var(--accent);
+      font-style: italic;
+      font-weight: 400;
+      display: block;
+    }
+
+    .hero-desc {
+      font-size: 0.96rem;
+      color: #b5bac1;
+      max-width: 500px;
+      margin-bottom: 36px;
+      line-height: 1.7;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .hero-image-wrapper {
+      position: relative;
+    }
+
+    .hero-image-wrapper img {
+      width: 100%;
+      height: 520px;
+      object-fit: cover;
+      border-radius: 2px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.65);
+    }
+
+    .script-badge {
+      position: absolute;
+      bottom: -32px;
+      right: 15px;
+      font-family: var(--font-script);
+      font-size: 1.65rem;
+      color: #fff;
+      line-height: 1.15;
+      transform: rotate(-7deg);
+      text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+      pointer-events: none;
+    }
+
+    .script-badge span {
+      color: var(--accent);
+    }
+
+    /* Approach Section */
+    .approach-section {
+      padding: 90px 0;
+      background-color: #ffffff;
+    }
+
+    .approach-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 48px;
+      gap: 30px;
+    }
+
+    .approach-desc {
+      max-width: 440px;
+      color: var(--text-muted);
+      font-size: 0.92rem;
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr auto 1fr;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .process-card {
+      background: var(--bg-dark);
+      border-radius: 4px;
+      overflow: hidden;
+      border: 1px solid #23272e;
+      display: flex;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .process-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .process-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    .process-arrow {
+      color: #9ca3af;
+      font-size: 1.5rem;
+      padding: 0 4px;
+      user-select: none;
+    }
+
+    @media (max-width: 1080px) {
+      .process-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      .process-arrow {
+        display: none;
+      }
+    }
+
+    .process-info {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .process-top {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+    }
+
+    .process-num {
+      border: 1px solid #4b5563;
+      color: var(--accent);
+      width: 28px;
+      height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+
+    .process-title {
+      font-size: 0.88rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      line-height: 1.25;
+    }
+
+    .process-title span {
+      display: block;
+      font-size: 0.72rem;
+      color: #9ca3af;
+      font-weight: 400;
+      text-transform: none;
+      letter-spacing: 0;
+      margin-top: 2px;
+    }
+
+    .process-info p {
+      font-size: 0.8rem;
+      color: #9ca3af;
+      line-height: 1.5;
+      margin-top: 14px;
+    }
+
+    .process-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .process-arrow {
+      color: #9ca3af;
+      font-size: 1.3rem;
+      padding: 0 4px;
+    }
+
+    /* Featured Project */
+    .featured-section {
+      padding: 85px 0;
+      background-color: #f7f7f8;
+      border-top: 1px solid var(--border-light);
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .featured-grid {
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .featured-info .section-tag {
+      color: #8b6b3e;
+    }
+
+    .featured-info .subhead {
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-top: 6px;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    .featured-info p {
+      color: #4b5563;
+      font-size: 0.94rem;
+      margin-bottom: 28px;
+      line-height: 1.65;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .gallery-card {
+      background: #fff;
+      border: 1px solid var(--border-light);
+      border-radius: 2px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .gallery-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .gallery-caption {
+      padding: 16px;
+      flex-grow: 1;
+    }
+
+    .gallery-caption h4 {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-dark);
+      margin-bottom: 6px;
+    }
+
+    .gallery-caption p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+      margin-bottom: 0;
+    }
+
+    /* Services Section */
+    .services-section {
+      padding: 90px 0;
+      background-color: #ffffff;
+    }
+
+    .services-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 40px;
+      gap: 20px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 18px;
+    }
+
+    .service-card {
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .service-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 2px;
+      margin-bottom: 14px;
+    }
+
+    .service-card h4 {
+      font-family: var(--font-serif);
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 6px;
+    }
+
+    .service-card p {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+    }
+
+    /* Start Your Project / CTA */
+    .cta-section {
+      background-color: var(--bg-dark);
+      color: #fff;
+      border-top: 1px solid var(--border-dark);
+    }
+
+    .cta-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.05fr;
+      min-height: 460px;
+    }
+
+    .cta-image {
+      position: relative;
+    }
+
+    .cta-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .cta-content {
+      padding: 60px 48px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .cta-content .section-tag {
+      color: var(--accent);
+    }
+
+    .cta-title {
+      font-family: var(--font-serif);
+      font-size: 2.7rem;
+      font-weight: 500;
+      margin: 8px 0 16px;
+      line-height: 1.15;
+    }
+
+    .cta-desc {
+      font-size: 0.94rem;
+      color: #9ca3af;
+      max-width: 480px;
+      margin-bottom: 32px;
+    }
+
+    .cta-actions {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 54px;
+      flex-wrap: wrap;
+    }
+
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      border-top: 1px solid var(--border-dark);
+      padding-top: 32px;
+    }
+
+    .pillar-item {
+      text-align: center;
+    }
+
+    .pillar-icon {
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: center;
+      color: var(--accent);
+    }
+
+    .pillar-item span {
+      display: block;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #e5e7eb;
+      line-height: 1.35;
+    }
+
+    /* Responsive */
+    @media (max-width: 1080px) {
+      .services-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .process-grid {
+        grid-template-columns: 1fr;
+      }
+      .process-arrow {
+        display: none;
+      }
+      .featured-grid {
+        grid-template-columns: 1fr;
+      }
+      .cta-grid {
+        grid-template-columns: 1fr;
+      }
+      .cta-image {
+        height: 320px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+      .services-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+      .pillars-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .nav-menu {
+        display: none;
+      }
+      .hero-title {
+        font-size: 2.75rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header>
+    <div class="container">
+      <nav class="nav-bar">
+        <a href="#" class="logo-container">
+          <svg class="logo-icon" viewBox="0 0 100 100" fill="none" stroke="#d8a25e" stroke-width="4">
+            <polygon points="50,6 88,28 88,72 50,94 12,72 12,28" />
+            <line x1="50" y1="6" x2="50" y2="50" />
+            <line x1="88" y1="28" x2="50" y2="50" />
+            <line x1="12" y1="28" x2="50" y2="50" />
+            <line x1="50" y1="50" x2="50" y2="94" />
+            <line x1="50" y1="50" x2="88" y2="72" />
+            <line x1="50" y1="50" x2="12" y2="72" />
+          </svg>
+          <div class="logo-text">
+            <h1>Integrated Craft Services</h1>
+            <p>Engineer &nbsp;|&nbsp; Design &nbsp;|&nbsp; Build &nbsp;|&nbsp; Solve</p>
+          </div>
+        </a>
+        <ul class="nav-menu">
+          <li><a href="#" class="nav-link active">Home</a></li>
+          <li><a href="#approach" class="nav-link">Our Approach</a></li>
+          <li><a href="#services" class="nav-link">Services &#9662;</a></li>
+          <li><a href="#featured" class="nav-link">Projects</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+        <a href="#contact" class="btn btn-primary">Get a Quote &rarr;</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <span class="section-tag">Everyday Challenges. Extraordinary Solutions.</span>
+          <h1 class="hero-title">
+            Engineered Thinking.
+            <span>Crafted Solutions.</span>
+          </h1>
+          <p class="hero-desc">
+            We bring the precision, creativity, and problem-solving expertise of engineering into the spaces where people live and work. Through advanced design, practical innovation, and skilled craftsmanship, we turn your unique challenges into beautiful, functional, and enduring solutions.
+          </p>
+          <div class="hero-actions">
+            <a href="#contact" class="btn btn-primary">Discuss Your Project &rarr;</a>
+            <a href="#featured" class="btn btn-outline-dark">See Our Work</a>
+          </div>
+        </div>
+        <div class="hero-image-wrapper">
+          <img src="image/nook_finished.png" alt="Window Nook Bench with Relocated HVAC Vent">
+          <div class="script-badge">
+            Real<br>Challenges.<br><span>Thoughtful<br>Solutions.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Approach Section -->
+  <section class="approach-section" id="approach">
+    <div class="container">
+      <div class="approach-header">
+        <div>
+          <span class="section-tag">A Different Way to Build</span>
+          <h2 class="section-title">More Than Furniture. A Better Approach.</h2>
+        </div>
+        <p class="approach-desc">
+          We approach each project like an engineering challenge &mdash; understanding the problem, designing the right solution, and building it with exceptional craftsmanship.
+        </p>
+      </div>
+
+      <div class="process-grid">
+        <!-- Step 1 -->
+        <div class="process-card">
+          <img src="image/02_process_understand.jpg" alt="Step 1: Understand the Challenge">
+        </div>
+
+        <div class="process-arrow">&rarr;</div>
+
+        <!-- Step 2 -->
+        <div class="process-card">
+          <img src="image/03_process_design.jpg" alt="Step 2: Design the Solution">
+        </div>
+
+        <div class="process-arrow">&rarr;</div>
+
+        <!-- Step 3 -->
+        <div class="process-card">
+          <img src="image/04_process_build.jpg" alt="Step 3: Build the Solution">
+        </div>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Project -->
+  <section class="featured-section" id="featured">
+    <div class="container">
+      <div class="featured-grid">
+        <div class="featured-info">
+          <span class="section-tag">Featured Project</span>
+          <h2 class="section-title">Custom Window Nook</h2>
+          <div class="subhead">Engineering Meets Everyday Living</div>
+          <p>
+            This project required precise digital modeling to integrate a functional bench with an existing floor-level HVAC system, ensuring proper airflow via a relocated toe-kick vent.
+          </p>
+          <a href="#featured" class="btn btn-primary">View Full Project &rarr;</a>
+        </div>
+
+        <div class="gallery-grid">
+          <div class="gallery-card">
+            <img src="image/nook_design.png" alt="3D Model of the Window Nook">
+            <div class="gallery-caption">
+              <h4>The Engineering</h4>
+              <p>3D modeling to integrate storage, structure, and HVAC airflow.</p>
+            </div>
+          </div>
+          <div class="gallery-card">
+            <img src="image/nook_before.png" alt="Before: Window Nook Area under Construction">
+            <div class="gallery-caption">
+              <h4>The Challenge</h4>
+              <p>Existing floor-level HVAC system needed to remain functional.</p>
+            </div>
+          </div>
+          <div class="gallery-card">
+            <img src="image/nook_finished.png" alt="Finished Custom Window Nook">
+            <div class="gallery-caption">
+              <h4>The Solution</h4>
+              <p>A beautiful, functional bench with relocated toe-kick vent and integrated storage.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="services-section" id="services">
+    <div class="container">
+      <div class="services-header">
+        <div>
+          <span class="section-tag">Custom Solutions for Everyday Spaces</span>
+          <h2 class="section-title">How We Can Help</h2>
+        </div>
+        <p style="color: var(--text-muted); font-size: 0.92rem; max-width: 460px;">
+          From unique furniture to complex built-ins, we create tailored solutions that combine practical engineering with exceptional craftsmanship.
+        </p>
+        <a href="#services" class="btn btn-primary">All Services &rarr;</a>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card">
+          <img src="image/desk.png" alt="Custom Furniture">
+          <h4>Custom Furniture</h4>
+          <p>Tables, desks, beds, and one-of-a-kind pieces.</p>
+        </div>
+        <div class="service-card">
+          <img src="image/platformbed.png" alt="Closets & Storage">
+          <h4>Closets &amp; Storage</h4>
+          <p>Walk-in closets, pantries, mudrooms, and organization systems.</p>
+        </div>
+        <div class="service-card">
+          <img src="image/nook_finished.png" alt="Cabinetry & Built-Ins">
+          <h4>Cabinetry &amp; Built-Ins</h4>
+          <p>Entertainment centers, home offices, window seats, and architectural features.</p>
+        </div>
+        <div class="service-card">
+          <img src="image/nook_before.png" alt="Garage Solutions">
+          <h4>Garage Solutions</h4>
+          <p>Workbenches, tool storage, cabinets, and space-saving systems.</p>
+        </div>
+        <div class="service-card">
+          <img src="image/nook_design.png" alt="Design & Engineering">
+          <h4>Design &amp; Engineering</h4>
+          <p>3D design, technical modeling, and custom solutions for challenging spaces.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section" id="contact">
+    <div class="cta-grid">
+      <div class="cta-image">
+        <img src="image/desk.png" alt="Design blueprint and tools on work surface">
+      </div>
+      <div class="cta-content">
+        <span class="section-tag">Let's Solve Your Challenge</span>
+        <h2 class="cta-title">Start Your Project</h2>
+        <p class="cta-desc">
+          Whether you have a clear idea or just a space that needs a better solution, we can help you design and build something that works beautifully.
+        </p>
+        <div class="cta-actions">
+          <a href="#contact" class="btn btn-primary">Get a Quote &rarr;</a>
+          <a href="#contact" class="btn btn-outline-dark">Schedule a Consultation</a>
+        </div>
+        <div class="pillars-grid">
+          <div class="pillar-item">
+            <div class="pillar-icon">
+              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M12 2a6 6 0 0 0-6 6c0 2.22 1.21 4.16 3 5.2V17a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-3.8c1.79-1.04 3-2.98 3-5.2a6 6 0 0 0-6-6z"/><path d="M9 21h6"/></svg>
+            </div>
+            <span>Creative Problem Solving</span>
+          </div>
+          <div class="pillar-item">
+            <div class="pillar-icon">
+              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+            </div>
+            <span>Engineering Precision</span>
+          </div>
+          <div class="pillar-item">
+            <div class="pillar-icon">
+              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><polygon points="3 21 21 21 3 3 3 21"/></svg>
+            </div>
+            <span>Beautiful Craftsmanship</span>
+          </div>
+          <div class="pillar-item">
+            <div class="pillar-icon">
+              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            </div>
+            <span>Spaces That Work Better</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
