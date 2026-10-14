@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Selected Projects | Integrated Craft Services</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #121417;
+      --text-dark: #14171a;
+      --text-muted: #656b73;
+      --accent: #d8a25e;
+      --accent-hover: #c48e4b;
+      --border-light: #e5e7eb;
+      --border-dark: #2d333b;
+      --font-sans: 'Plus Jakarta Sans', sans-serif;
+      --font-serif: 'Playfair Display', Georgia, serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--font-sans); color: var(--text-dark); background: #fff; line-height: 1.6; }
+    a { text-decoration: none; color: inherit; }
+    .container { max-width: 1240px; margin: 0 auto; padding: 0 24px; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 26px; font-size: 0.82rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; border-radius: 2px; }
+    .btn-primary { background: var(--accent); color: #1a1610; }
+    .btn-primary:hover { background: var(--accent-hover); }
+    header { background: var(--bg-dark); border-bottom: 1px solid rgba(255, 255, 255, 0.08); position: sticky; top: 0; z-index: 100; }
+    .nav-bar { display: flex; align-items: center; justify-content: space-between; height: 84px; }
+    .logo-container { display: flex; align-items: center; gap: 14px; }
+    .logo-text h1 { font-size: 0.95rem; font-weight: 600; letter-spacing: 0.16em; color: #fff; text-transform: uppercase; }
+    .logo-text p { font-size: 0.65rem; letter-spacing: 0.18em; color: #9ca3af; text-transform: uppercase; }
+    .nav-menu { display: flex; gap: 32px; list-style: none; }
+    .nav-link { font-size: 0.85rem; color: #d1d5db; font-weight: 500; }
+    .nav-link.active, .nav-link:hover { color: #fff; }
+    .page-hero { background: var(--bg-dark); color: #fff; padding: 70px 0 80px; text-align: center; }
+    .section-tag { font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 700; color: var(--accent); display: block; margin-bottom: 12px; }
+    .page-title { font-family: var(--font-serif); font-size: 3rem; font-weight: 500; margin-bottom: 16px; }
+    .page-lead { max-width: 620px; margin: 0 auto; color: #9ca3af; font-size: 1rem; }
+    .projects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; padding: 80px 0; }
+    .project-card { border: 1px solid var(--border-light); border-radius: 2px; overflow: hidden; display: flex; flex-direction: column; background: #fff; }
+    .project-card img { width: 100%; height: 320px; object-fit: cover; }
+    .project-info { padding: 30px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
+    .project-category { font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 700; color: var(--accent); margin-bottom: 8px; }
+    .project-title { font-family: var(--font-serif); font-size: 1.6rem; margin-bottom: 12px; }
+    .project-desc { color: var(--text-muted); font-size: 0.92rem; margin-bottom: 20px; }
+    .view-link { font-size: 0.82rem; font-weight: 700; color: var(--text-dark); display: inline-flex; align-items: center; gap: 6px; }
+    .view-link:hover { color: var(--accent); }
+    footer { background: var(--bg-dark); color: #9ca3af; padding: 40px 0; text-align: center; font-size: 0.85rem; border-top: 1px solid var(--border-dark); }
+    @media(max-width: 860px) { .projects-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav class="nav-bar">
+        <a href="index.html" class="logo-container">
+          <svg width="36" height="36" viewBox="0 0 100 100" fill="none" stroke="#d8a25e" stroke-width="4"><polygon points="50,6 88,28 88,72 50,94 12,72 12,28" /><line x1="50" y1="6" x2="50" y2="50" /><line x1="88" y1="28" x2="50" y2="50" /><line x1="12" y1="28" x2="50" y2="50" /><line x1="50" y1="50" x2="50" y2="94" /><line x1="50" y1="50" x2="88" y2="72" /><line x1="50" y1="50" x2="12" y2="72" /></svg>
+          <div class="logo-text">
+            <h1>Integrated Craft Services</h1>
+            <p>Engineer | Design | Build | Solve</p>
+          </div>
+        </a>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="approach.html" class="nav-link">Our Approach</a></li>
+          <li><a href="services.html" class="nav-link">Services</a></li>
+          <li><a href="projects.html" class="nav-link active">Projects</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+        <a href="quote.html" class="btn btn-primary">Get a Quote &rarr;</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="page-hero">
+    <div class="container">
+      <span class="section-tag">Portfolio &amp; Case Studies</span>
+      <h1 class="page-title">Featured Craftsmanship</h1>
+      <p class="page-lead">Explore how our engineering-first mindset solves intricate spatial and mechanical challenges in custom homes.</p>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="projects-grid">
+      <!-- Project 1 -->
+      <div class="project-card">
+        <img src="image/nook_finished.png" alt="Custom Window Nook">
+        <div class="project-info">
+          <div>
+            <span class="project-category">Cabinetry &amp; HVAC Engineering</span>
+            <h3 class="project-title">Custom Window Nook Bench</h3>
+            <p class="project-desc">Floor-to-ceiling bay window seat incorporating active HVAC vent redirection through a slotted lower toe-kick, twin blanket drawers, and solid white oak trim.</p>
+          </div>
+          <a href="custom-window-nook.html" class="view-link">Explore Case Study &rarr;</a>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="project-card">
+        <img src="image/desk.png" alt="Executive Cantilever Desk">
+        <div class="project-info">
+          <div>
+            <span class="project-category">Custom Furniture</span>
+            <h3 class="project-title">Solid Walnut Cantilever Desk</h3>
+            <p class="project-desc">Engineered steel armature core concealed within continuous grain American black walnut, delivering a clean floating workspace with integrated power routing.</p>
+          </div>
+          <a href="quote.html" class="view-link">Inquire About Similar &rarr;</a>
+        </div>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="project-card">
+        <img src="image/platformbed.png" alt="Engineered Platform Bed">
+        <div class="project-info">
+          <div>
+            <span class="project-category">Bedrooms &amp; Storage</span>
+            <h3 class="project-title">King Floating Platform Bed</h3>
+            <p class="project-desc">Minimalist floating silhouette engineered with internal torsion-box slat support, warm under-rail ambient illumination, and integrated bedside charging decks.</p>
+          </div>
+          <a href="quote.html" class="view-link">Inquire About Similar &rarr;</a>
+        </div>
+      </div>
+
+      <!-- Project 4 -->
+      <div class="project-card">
+        <img src="image/kingplatform.png" alt="Solid Oak Joinery Frame">
+        <div class="project-info">
+          <div>
+            <span class="project-category">Joinery &amp; Structure</span>
+            <h3 class="project-title">Timber Frame Joinery Study</h3>
+            <p class="project-desc">Precision mortise-and-tenon structural framing project showcasing traditional wood-to-wood mechanical connections reinforced for long-term load distribution.</p>
+          </div>
+          <a href="quote.html" class="view-link">Inquire About Similar &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Integrated Craft Services. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Case Study: Custom Window Nook | Integrated Craft Services</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #121417;
+      --text-dark: #14171a;
+      --text-muted: #656b73;
+      --accent: #d8a25e;
+      --accent-hover: #c48e4b;
+      --border-light: #e5e7eb;
+      --border-dark: #2d333b;
+      --font-sans: 'Plus Jakarta Sans', sans-serif;
+      --font-serif: 'Playfair Display', Georgia, serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--font-sans); color: var(--text-dark); background: #fff; line-height: 1.65; }
+    a { text-decoration: none; color: inherit; }
+    .container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 26px; font-size: 0.82rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; border-radius: 2px; }
+    .btn-primary { background: var(--accent); color: #1a1610; }
+    header { background: var(--bg-dark); border-bottom: 1px solid rgba(255, 255, 255, 0.08); position: sticky; top: 0; z-index: 100; }
+    .nav-bar { display: flex; align-items: center; justify-content: space-between; height: 84px; }
+    .logo-container { display: flex; align-items: center; gap: 14px; }
+    .logo-text h1 { font-size: 0.95rem; font-weight: 600; letter-spacing: 0.16em; color: #fff; text-transform: uppercase; }
+    .logo-text p { font-size: 0.65rem; letter-spacing: 0.18em; color: #9ca3af; text-transform: uppercase; }
+    .nav-menu { display: flex; gap: 32px; list-style: none; }
+    .nav-link { font-size: 0.85rem; color: #d1d5db; font-weight: 500; }
+    .nav-link.active, .nav-link:hover { color: #fff; }
+    .case-header { padding: 60px 0 40px; }
+    .back-link { font-size: 0.82rem; font-weight: 600; color: var(--accent); margin-bottom: 16px; display: inline-block; }
+    .case-title { font-family: var(--font-serif); font-size: 2.8rem; line-height: 1.15; margin-bottom: 12px; }
+    .case-meta { display: flex; gap: 30px; font-size: 0.85rem; color: var(--text-muted); padding-bottom: 30px; border-bottom: 1px solid var(--border-light); margin-bottom: 40px; }
+    .hero-img img { width: 100%; max-height: 540px; object-fit: cover; border-radius: 2px; margin-bottom: 50px; }
+    .case-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 50px; margin-bottom: 60px; }
+    .content h2 { font-family: var(--font-serif); font-size: 1.8rem; margin: 30px 0 14px; }
+    .content p { font-size: 0.96rem; color: #374151; margin-bottom: 20px; }
+    .sidebar { background: #f9fafb; border: 1px solid var(--border-light); padding: 30px; border-radius: 2px; height: fit-content; }
+    .sidebar h4 { font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-dark); margin-bottom: 14px; }
+    .sidebar ul { list-style: none; font-size: 0.85rem; color: var(--text-muted); }
+    .sidebar li { margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px solid #e5e7eb; }
+    .stages-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin: 40px 0; }
+    .stage-card { border: 1px solid var(--border-light); border-radius: 2px; overflow: hidden; }
+    .stage-card img { width: 100%; height: 260px; object-fit: cover; }
+    .stage-caption { padding: 16px; font-size: 0.85rem; color: var(--text-muted); }
+    .stage-caption strong { display: block; color: var(--text-dark); margin-bottom: 4px; }
+    footer { background: var(--bg-dark); color: #9ca3af; padding: 40px 0; text-align: center; font-size: 0.85rem; }
+    @media(max-width: 768px) { .case-grid, .stages-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav class="nav-bar">
+        <a href="index.html" class="logo-container">
+          <svg width="36" height="36" viewBox="0 0 100 100" fill="none" stroke="#d8a25e" stroke-width="4"><polygon points="50,6 88,28 88,72 50,94 12,72 12,28" /><line x1="50" y1="6" x2="50" y2="50" /><line x1="88" y1="28" x2="50" y2="50" /><line x1="12" y1="28" x2="50" y2="50" /><line x1="50" y1="50" x2="50" y2="94" /><line x1="50" y1="50" x2="88" y2="72" /><line x1="50" y1="50" x2="12" y2="72" /></svg>
+          <div class="logo-text">
+            <h1>Integrated Craft Services</h1>
+            <p>Engineer | Design | Build | Solve</p>
+          </div>
+        </a>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="approach.html" class="nav-link">Our Approach</a></li>
+          <li><a href="services.html" class="nav-link">Services</a></li>
+          <li><a href="projects.html" class="nav-link active">Projects</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+        <a href="quote.html" class="btn btn-primary">Get a Quote &rarr;</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="case-header">
+      <a href="projects.html" class="back-link">&larr; Back to Projects</a>
+      <h1 class="case-title">Custom Window Nook with Integrated HVAC Channeling</h1>
+      <div class="case-meta">
+        <div><strong>Location:</strong> Private Residence</div>
+        <div><strong>Scope:</strong> 3D Mechanical Modeling &amp; Built-In Fabrication</div>
+        <div><strong>Materials:</strong> Rift Sawn White Oak, Steel Diverter, Soft-Close Slides</div>
+      </div>
+    </div>
+
+    <div class="hero-img">
+      <img src="image/nook_finished.png" alt="Window Nook Finished">
+    </div>
+
+    <div class="case-grid">
+      <div class="content">
+        <h2>The Challenge</h2>
+        <p>The homeowners sought a bespoke cushioned window bench under their scenic bedroom windows to provide cozy reading seating with deep pull-out storage drawers. However, the prime building zone sat directly over an existing floor-mounted HVAC supply register providing vital heating and airflow to the perimeter wall.</p>
+        <p>Traditional millwork approaches either choke register airflow or require costly sheet metal rerouting through subflooring.</p>
+
+        <div class="stages-grid">
+          <div class="stage-card">
+            <img src="image/nook_before.png" alt="Before: Open Studs &amp; Vent">
+            <div class="stage-caption">
+              <strong>Before State</strong>
+              Exposed subfloor with high-output supply register in the bench footprint.
+            </div>
+          </div>
+          <div class="stage-card">
+            <img src="image/nook_design.png" alt="Engineering 3D Model">
+            <div class="stage-caption">
+              <strong>Parametric Model</strong>
+              Internal plenum designed to bypass drawer boxes directly into toe-kick.
+            </div>
+          </div>
+        </div>
+
+        <h2>The Engineering Solution</h2>
+        <p>We developed a custom insulated sheet-metal plenum built seamlessly into the internal structure of the cabinetry carcass. Using 3D CAD modeling, drawer depths were adjusted to isolate the mechanical airflow path from stored linens and blankets.</p>
+        <p>The supply air routes 90-degrees through a hidden duct run and vents out through a custom architectural slotted toe-kick grill, preserving full volumetric CFM airflow while yielding a flush, gorgeous window seat.</p>
+      </div>
+
+      <aside class="sidebar">
+        <h4>Technical Specifications</h4>
+        <ul>
+          <li><strong>Airflow CFM:</strong> 120 CFM (Unimpeded)</li>
+          <li><strong>Finish:</strong> Low-VOC matte polyurethane</li>
+          <li><strong>Drawers:</strong> Blum Undermount Soft-Close (100lb rated)</li>
+          <li><strong>Joinery:</strong> Domino loose tenon &amp; glued rabbets</li>
+          <li><strong>Vent Grill:</strong> Matching slotted solid oak toe-kick</li>
+        </ul>
+        <div style="margin-top: 24px;">
+          <a href="quote.html" class="btn btn-primary" style="width: 100%; justify-content: center;">Start Similar Project</a>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Integrated Craft Services. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
