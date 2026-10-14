@@ -323,68 +323,6 @@
       }
     }
 
-    .process-info {
-      padding: 24px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .process-top {
-      display: flex;
-      align-items: baseline;
-      gap: 12px;
-    }
-
-    .process-num {
-      border: 1px solid #4b5563;
-      color: var(--accent);
-      width: 28px;
-      height: 28px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.85rem;
-      font-weight: 700;
-    }
-
-    .process-title {
-      font-size: 0.88rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      line-height: 1.25;
-    }
-
-    .process-title span {
-      display: block;
-      font-size: 0.72rem;
-      color: #9ca3af;
-      font-weight: 400;
-      text-transform: none;
-      letter-spacing: 0;
-      margin-top: 2px;
-    }
-
-    .process-info p {
-      font-size: 0.8rem;
-      color: #9ca3af;
-      line-height: 1.5;
-      margin-top: 14px;
-    }
-
-    .process-card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .process-arrow {
-      color: #9ca3af;
-      font-size: 1.3rem;
-      padding: 0 4px;
-    }
-
     /* Featured Project */
     .featured-section {
       padding: 85px 0;
@@ -434,6 +372,12 @@
       overflow: hidden;
       display: flex;
       flex-direction: column;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .gallery-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.06);
     }
 
     .gallery-card img {
@@ -487,6 +431,11 @@
       background: #fff;
       display: flex;
       flex-direction: column;
+      transition: transform 0.2s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-4px);
     }
 
     .service-card img {
@@ -602,12 +551,6 @@
       .services-grid {
         grid-template-columns: repeat(3, 1fr);
       }
-      .process-grid {
-        grid-template-columns: 1fr;
-      }
-      .process-arrow {
-        display: none;
-      }
       .featured-grid {
         grid-template-columns: 1fr;
       }
@@ -647,7 +590,7 @@
   <header>
     <div class="container">
       <nav class="nav-bar">
-        <a href="#" class="logo-container">
+        <a href="index.html" class="logo-container">
           <svg class="logo-icon" viewBox="0 0 100 100" fill="none" stroke="#d8a25e" stroke-width="4">
             <polygon points="50,6 88,28 88,72 50,94 12,72 12,28" />
             <line x1="50" y1="6" x2="50" y2="50" />
@@ -663,14 +606,14 @@
           </div>
         </a>
         <ul class="nav-menu">
-          <li><a href="#" class="nav-link active">Home</a></li>
-          <li><a href="#approach" class="nav-link">Our Approach</a></li>
-          <li><a href="#services" class="nav-link">Services &#9662;</a></li>
-          <li><a href="#featured" class="nav-link">Projects</a></li>
-          <li><a href="#about" class="nav-link">About</a></li>
-          <li><a href="#contact" class="nav-link">Contact</a></li>
+          <li><a href="index.html" class="nav-link active">Home</a></li>
+          <li><a href="approach.html" class="nav-link">Our Approach</a></li>
+          <li><a href="services.html" class="nav-link">Services</a></li>
+          <li><a href="projects.html" class="nav-link">Projects</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
         </ul>
-        <a href="#contact" class="btn btn-primary">Get a Quote &rarr;</a>
+        <a href="quote.html" class="btn btn-primary">Get a Quote &rarr;</a>
       </nav>
     </div>
   </header>
@@ -689,8 +632,8 @@
             We bring the precision, creativity, and problem-solving expertise of engineering into the spaces where people live and work. Through advanced design, practical innovation, and skilled craftsmanship, we turn your unique challenges into beautiful, functional, and enduring solutions.
           </p>
           <div class="hero-actions">
-            <a href="#contact" class="btn btn-primary">Discuss Your Project &rarr;</a>
-            <a href="#featured" class="btn btn-outline-dark">See Our Work</a>
+            <a href="quote.html" class="btn btn-primary">Discuss Your Project &rarr;</a>
+            <a href="projects.html" class="btn btn-outline-dark">See Our Work</a>
           </div>
         </div>
         <div class="hero-image-wrapper">
@@ -718,24 +661,23 @@
 
       <div class="process-grid">
         <!-- Step 1 -->
-        <div class="process-card">
+        <a href="approach.html" class="process-card">
           <img src="image/02_process_understand.jpg" alt="Step 1: Understand the Challenge">
-        </div>
+        </a>
 
         <div class="process-arrow">&rarr;</div>
 
         <!-- Step 2 -->
-        <div class="process-card">
+        <a href="approach.html" class="process-card">
           <img src="image/03_process_design.jpg" alt="Step 2: Design the Solution">
-        </div>
+        </a>
 
         <div class="process-arrow">&rarr;</div>
 
         <!-- Step 3 -->
-        <div class="process-card">
+        <a href="approach.html" class="process-card">
           <img src="image/04_process_build.jpg" alt="Step 3: Build the Solution">
-        </div>
-      </div>
+        </a>
       </div>
     </div>
   </section>
@@ -751,31 +693,31 @@
           <p>
             This project required precise digital modeling to integrate a functional bench with an existing floor-level HVAC system, ensuring proper airflow via a relocated toe-kick vent.
           </p>
-          <a href="#featured" class="btn btn-primary">View Full Project &rarr;</a>
+          <a href="custom-window-nook.html" class="btn btn-primary">View Full Project &rarr;</a>
         </div>
 
         <div class="gallery-grid">
-          <div class="gallery-card">
+          <a href="custom-window-nook.html" class="gallery-card">
             <img src="image/nook_design.png" alt="3D Model of the Window Nook">
             <div class="gallery-caption">
               <h4>The Engineering</h4>
               <p>3D modeling to integrate storage, structure, and HVAC airflow.</p>
             </div>
-          </div>
-          <div class="gallery-card">
+          </a>
+          <a href="custom-window-nook.html" class="gallery-card">
             <img src="image/nook_before.png" alt="Before: Window Nook Area under Construction">
             <div class="gallery-caption">
               <h4>The Challenge</h4>
               <p>Existing floor-level HVAC system needed to remain functional.</p>
             </div>
-          </div>
-          <div class="gallery-card">
+          </a>
+          <a href="custom-window-nook.html" class="gallery-card">
             <img src="image/nook_finished.png" alt="Finished Custom Window Nook">
             <div class="gallery-caption">
               <h4>The Solution</h4>
               <p>A beautiful, functional bench with relocated toe-kick vent and integrated storage.</p>
             </div>
-          </div>
+          </a>
         </div>
       </div>
     </div>
@@ -792,35 +734,35 @@
         <p style="color: var(--text-muted); font-size: 0.92rem; max-width: 460px;">
           From unique furniture to complex built-ins, we create tailored solutions that combine practical engineering with exceptional craftsmanship.
         </p>
-        <a href="#services" class="btn btn-primary">All Services &rarr;</a>
+        <a href="services.html" class="btn btn-primary">All Services &rarr;</a>
       </div>
 
       <div class="services-grid">
-        <div class="service-card">
+        <a href="services.html" class="service-card">
           <img src="image/desk.png" alt="Custom Furniture">
           <h4>Custom Furniture</h4>
           <p>Tables, desks, beds, and one-of-a-kind pieces.</p>
-        </div>
-        <div class="service-card">
+        </a>
+        <a href="services.html" class="service-card">
           <img src="image/platformbed.png" alt="Closets & Storage">
           <h4>Closets &amp; Storage</h4>
           <p>Walk-in closets, pantries, mudrooms, and organization systems.</p>
-        </div>
-        <div class="service-card">
+        </a>
+        <a href="services.html" class="service-card">
           <img src="image/nook_finished.png" alt="Cabinetry & Built-Ins">
           <h4>Cabinetry &amp; Built-Ins</h4>
           <p>Entertainment centers, home offices, window seats, and architectural features.</p>
-        </div>
-        <div class="service-card">
+        </a>
+        <a href="services.html" class="service-card">
           <img src="image/nook_before.png" alt="Garage Solutions">
           <h4>Garage Solutions</h4>
           <p>Workbenches, tool storage, cabinets, and space-saving systems.</p>
-        </div>
-        <div class="service-card">
+        </a>
+        <a href="services.html" class="service-card">
           <img src="image/nook_design.png" alt="Design & Engineering">
           <h4>Design &amp; Engineering</h4>
           <p>3D design, technical modeling, and custom solutions for challenging spaces.</p>
-        </div>
+        </a>
       </div>
     </div>
   </section>
@@ -838,8 +780,8 @@
           Whether you have a clear idea or just a space that needs a better solution, we can help you design and build something that works beautifully.
         </p>
         <div class="cta-actions">
-          <a href="#contact" class="btn btn-primary">Get a Quote &rarr;</a>
-          <a href="#contact" class="btn btn-outline-dark">Schedule a Consultation</a>
+          <a href="quote.html" class="btn btn-primary">Get a Quote &rarr;</a>
+          <a href="contact.html" class="btn btn-outline-dark">Schedule a Consultation</a>
         </div>
         <div class="pillars-grid">
           <div class="pillar-item">
@@ -850,7 +792,7 @@
           </div>
           <div class="pillar-item">
             <div class="pillar-icon">
-              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
             </div>
             <span>Engineering Precision</span>
           </div>
