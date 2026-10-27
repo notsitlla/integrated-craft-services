@@ -96,24 +96,27 @@
       </div>
 
       <div class="form-wrapper">
-        <form action="#" method="POST">
+        <form id="contact-form">
+          <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off">
+          <input type="hidden" name="form_type" value="Contact Page Inquiry">
+
           <div class="form-group">
             <label for="name">Your Name</label>
-            <input type="text" id="name" class="form-control" placeholder="Jane Doe" required>
+            <input type="text" id="name" name="name" class="form-control" placeholder="John Doe" required>
           </div>
           <div class="form-group">
             <label for="email">Email Address</label>
-            <input type="email" id="email" class="form-control" placeholder="jane@example.com" required>
+            <input type="email" id="email" name="email" class="form-control" placeholder="john@example.com" required>
           </div>
           <div class="form-group">
             <label for="phone">Phone (Optional)</label>
-            <input type="tel" id="phone" class="form-control" placeholder="(555) 000-0000">
+            <input type="tel" id="phone" name="phone" class="form-control" placeholder="(303) 555-0199">
           </div>
           <div class="form-group">
-            <label for="message">How can we help?</label>
-            <textarea id="message" class="form-control" placeholder="Tell us about the challenge or custom piece you are planning..."></textarea>
+            <label for="message">Message</label>
+            <textarea id="message" name="message" class="form-control" placeholder="Tell us about your project..." required></textarea>
           </div>
-          <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message &rarr;</button>
+          <button type="submit" class="btn btn-primary" id="contact-submit-btn" style="width: 100%;">Send Message &rarr;</button>
         </form>
       </div>
     </div>
@@ -124,5 +127,41 @@
       <p>&copy; 2026 Integrated Craft Services. All rights reserved.</p>
     </div>
   </footer>
+  <script>
+    const WORKER_URL = 'https://ics-contact-worker.allistonwatts.workers.dev';
+
+    document.getElementById('contact-form').onsubmit = async (e) => {
+      e.preventDefault();
+      const form = e.target;
+      const btn = document.getElementById('contact-submit-btn');
+      btn.disabled = true;
+      btn.textContent = 'Sending...';
+
+      const formData = new FormData(form);
+
+      try {
+        const res = await fetch(WORKER_URL, {
+          method: 'POST',
+          body: formData
+        });
+
+        if (res.ok) {
+          form.innerHTML = `
+            <div style="padding: 30px; background: #f9fafb; border: 1px solid var(--border-light); text-align: center;">
+              <h3 style="font-family: var(--font-serif); margin-bottom: 8px;">Message Received</h3>
+              <p style="color: var(--text-muted); font-size: 0.95rem;">Thank you! We have received your inquiry and will follow up shortly at info@integratedcraftservices.com.</p>
+            </div>`;
+        } else {
+          alert('There was an error sending your message. Please reach out to info@integratedcraftservices.com directly.');
+          btn.disabled = false;
+          btn.textContent = 'Send Message →';
+        }
+      } catch (err) {
+        alert('Network error. Please try again or email info@integratedcraftservices.com.');
+        btn.disabled = false;
+        btn.textContent = 'Send Message →';
+      }
+    };
+  </script>
 </body>
 </html>
