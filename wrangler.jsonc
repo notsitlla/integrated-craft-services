@@ -1,4 +1,3 @@
-```jsonc
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "integrated-craft-services",
