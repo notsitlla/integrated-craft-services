@@ -1,3 +1,5 @@
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,31 +25,46 @@
     body { font-family: var(--font-sans); color: var(--text-dark); background: #fff; line-height: 1.65; }
     a { text-decoration: none; color: inherit; }
     .container { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
-    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 26px; font-size: 0.82rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; border-radius: 2px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 13px 26px; font-size: 0.82rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; border-radius: 2px; }
     .btn-primary { background: var(--accent); color: #1a1610; }
+    .btn-primary:hover { background: var(--accent-hover); }
     header { background: var(--bg-dark); border-bottom: 1px solid rgba(255, 255, 255, 0.08); position: sticky; top: 0; z-index: 100; }
     .nav-bar { display: flex; align-items: center; justify-content: space-between; height: 84px; }
     .logo-container { display: flex; align-items: center; gap: 14px; }
     .logo-text h1 { font-size: 0.95rem; font-weight: 600; letter-spacing: 0.16em; color: #fff; text-transform: uppercase; }
     .logo-text p { font-size: 0.65rem; letter-spacing: 0.18em; color: #9ca3af; text-transform: uppercase; }
-    .nav-menu { display: flex; gap: 32px; list-style: none; }
+    .nav-menu { display: flex; gap: 32px; list-style: none; align-items: center; }
     .nav-link { font-size: 0.85rem; color: #d1d5db; font-weight: 500; }
     .nav-link.active, .nav-link:hover { color: #fff; }
+    
     .about-hero { padding: 75px 0 50px; text-align: center; }
     .section-tag { font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 700; color: var(--accent); margin-bottom: 12px; display: block; }
     .about-title { font-family: var(--font-serif); font-size: 3rem; margin-bottom: 20px; font-weight: 500; }
     .about-lead { font-size: 1.1rem; color: var(--text-muted); max-width: 680px; margin: 0 auto; }
+    
     .story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; padding: 60px 0 90px; }
-    .story-img img { width: 100%; height: 460px; object-fit: cover; border-radius: 2px; }
+    .story-img { display: flex; align-items: center; justify-content: center; }
+    .story-img img { width: 100%; height: 460px; object-fit: cover; border-radius: 2px; display: block; }
+    .story-text { display: flex; flex-direction: column; justify-content: center; }
     .story-text h2 { font-family: var(--font-serif); font-size: 2rem; margin-bottom: 16px; }
     .story-text p { color: #374151; font-size: 0.95rem; margin-bottom: 18px; }
+    .story-text p:last-child { margin-bottom: 0; }
+    
     .values-section { background: #f9fafb; padding: 80px 0; border-top: 1px solid var(--border-light); }
-    .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 40px; }
-    .value-card { background: #fff; border: 1px solid var(--border-light); padding: 32px; border-radius: 2px; }
-    .value-card h3 { font-family: var(--font-serif); font-size: 1.3rem; margin-bottom: 10px; }
-    .value-card p { font-size: 0.88rem; color: var(--text-muted); }
-    footer { background: var(--bg-dark); color: #9ca3af; padding: 40px 0; text-align: center; font-size: 0.85rem; }
-    @media(max-width: 768px) { .story-grid, .values-grid { grid-template-columns: 1fr; } }
+    .values-header { text-align: center; max-width: 600px; margin: 0 auto 40px; }
+    .values-header h2 { font-family: var(--font-serif); font-size: 2.2rem; }
+    .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; align-items: stretch; }
+    .value-card { background: #fff; border: 1px solid var(--border-light); padding: 32px; border-radius: 2px; display: flex; flex-direction: column; }
+    .value-card h3 { font-family: var(--font-serif); font-size: 1.3rem; margin-bottom: 12px; }
+    .value-card p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; }
+    
+    footer { background: var(--bg-dark); color: #9ca3af; padding: 40px 0; text-align: center; font-size: 0.85rem; border-top: 1px solid var(--border-dark); }
+    
+    @media(max-width: 860px) { 
+      .story-grid { grid-template-columns: 1fr; gap: 40px; }
+      .values-grid { grid-template-columns: 1fr; }
+      .story-img img { height: 350px; }
+    }
   </style>
 </head>
 <body>
@@ -55,7 +72,15 @@
     <div class="container">
       <nav class="nav-bar">
         <a href="index.html" class="logo-container">
-          <svg width="36" height="36" viewBox="0 0 100 100" fill="none" stroke="#d8a25e" stroke-width="4"><polygon points="50,6 88,28 88,72 50,94 12,72 12,28" /><line x1="50" y1="6" x2="50" y2="50" /><line x1="88" y1="28" x2="50" y2="50" /><line x1="12" y1="28" x2="50" y2="50" /><line x1="50" y1="50" x2="50" y2="94" /><line x1="50" y1="50" x2="88" y2="72" /><line x1="50" y1="50" x2="12" y2="72" /></svg>
+          <svg width="36" height="36" viewBox="0 0 100 100" fill="none" stroke="#d8a25e" stroke-width="4">
+            <polygon points="50,6 88,28 88,72 50,94 12,72 12,28" />
+            <line x1="50" y1="6" x2="50" y2="50" />
+            <line x1="88" y1="28" x2="50" y2="50" />
+            <line x1="12" y1="28" x2="50" y2="50" />
+            <line x1="50" y1="50" x2="50" y2="94" />
+            <line x1="50" y1="50" x2="88" y2="72" />
+            <line x1="50" y1="50" x2="12" y2="72" />
+          </svg>
           <div class="logo-text">
             <h1>Integrated Craft Services</h1>
             <p>Engineer | Design | Build | Solve</p>
@@ -64,7 +89,7 @@
         <ul class="nav-menu">
           <li><a href="index.html" class="nav-link">Home</a></li>
           <li><a href="approach.html" class="nav-link">Our Approach</a></li>
-          <li><a href="services.html" class="nav-link">Services</a></li>
+          <!-- <li><a href="services.html" class="nav-link">Services</a></li>  -->
           <li><a href="projects.html" class="nav-link">Projects</a></li>
           <li><a href="about.html" class="nav-link active">About</a></li>
           <li><a href="contact.html" class="nav-link">Contact</a></li>
@@ -74,50 +99,51 @@
     </div>
   </header>
 
-  <div class="about-hero">
-    <div class="container">
-      <span class="section-tag">About Integrated Craft Services</span>
-      <h1 class="about-title">Where Engineering Meets Craftsmanship</h1>
-      <p class="about-lead">Founded on the belief that custom cabinetry and furniture should solve real spatial challenges without aesthetic sacrifice.</p>
-    </div>
-  </div>
+  <main>
+    <section class="about-hero">
+      <div class="container">
+        <span class="section-tag">About Integrated Craft Services</span>
+        <h1 class="about-title">Where Engineering Meets Craftsmanship</h1>
+        <p class="about-lead">Founded on the belief that custom cabinetry and furniture should solve real spatial challenges without sacrificing looks.</p>
+      </div>
+    </section>
 
-  <div class="container">
-    <div class="story-grid">
-      <div class="story-text">
-        <h2>Built on Technical Discipline</h2>
-        <p>Integrated Craft Services was founded by engineers with a deep passion for fine architectural woodworking. We discovered a constant gap in high-end home finishing: cabinetmakers often avoid mechanical hurdles, while tradespeople rarely possess fine furniture craftsmanship.</p>
-        <p>We bridged that gap. Every solution we build incorporates formal mechanical calculations, full digital prototyping, and heritage joinery techniques that stand the test of time.</p>
-        <p>Whether navigating awkward chimney chases, floor-level ductwork, or historical settling, we don't work around problems—we engineer right through them.</p>
-      </div>
-      <div class="story-img">
-        <img src="image/desk.png" alt="Workshop Planning and Design">
-      </div>
-    </div>
-  </div>
-
-  <section class="values-section">
     <div class="container">
-      <div style="text-align: center;">
-        <span class="section-tag">Core Principles</span>
-        <h2 style="font-family: var(--font-serif); font-size: 2.2rem;">What We Stand For</h2>
-      </div>
-      <div class="values-grid">
-        <div class="value-card">
-          <h3>Rigor Over Assumptions</h3>
-          <p>We laser-measure and 3D model down to the millimeter so assemblies fit like precision clockwork upon delivery.</p>
+      <div class="story-grid">
+        <div class="story-text">
+          <h2>Built on Technical Discipline</h2>
+          <p>We design, manufacture, and install custom furniture, cabinetry, and interior storage solutions for homes and commercial spaces.</p> 
+          <p>By pairing mechanical engineering and advanced CAD/CNC technology with traditional woodworking craftsmanship, we deliver high-precision custom designs that are scalable, accessible, and built to last.</p>
         </div>
-        <div class="value-card">
-          <h3>Enduring Quality</h3>
-          <p>We favor solid North American hardwoods and durable structural joinery over shortcuts, ensuring lifetime longevity.</p>
-        </div>
-        <div class="value-card">
-          <h3>Thoughtful Collaboration</h3>
-          <p>We treat every client as a design partner, communicating options clearly with transparent timelines and budgets.</p>
+        <div class="story-img">
+          <img src="image/desk.png" alt="Workshop Planning and Design">
         </div>
       </div>
     </div>
-  </section>
+
+    <section class="values-section">
+      <div class="container">
+        <div class="values-header">
+          <span class="section-tag">Core Principles</span>
+          <h2>What We Stand For</h2>
+        </div>
+        <div class="values-grid">
+          <div class="value-card">
+            <h3>Precision-Driven Process</h3>
+            <p>We leverage digital measurement and 3D modeling to help ensure custom assemblies align seamlessly with your space.</p>
+          </div>
+          <div class="value-card">
+            <h3>Material Integrity</h3>
+            <p>We prioritize craftsmanship and installation to build quality pieces.</p>
+          </div>
+          <div class="value-card">
+            <h3>Transparent Partnership</h3>
+            <p>We emphasize open communication throughout the design process, keeping options, schedules, and estimates clear.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <footer>
     <div class="container">
@@ -126,3 +152,5 @@
   </footer>
 </body>
 </html>
+
+```
