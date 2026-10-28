@@ -67,7 +67,7 @@ Sent from: integratedcraftservices.com
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            from: "Integrated Craft Services <notifications@send.integratedcraftservices.com>",
+            from: "Integrated Craft Services <notifications@integratedcraftservices.com>",
             to: ["info@integratedcraftservices.com"],
             reply_to: email,
             subject: `[Website Inquiry] ${formType}: ${name}`,
