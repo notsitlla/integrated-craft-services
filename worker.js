@@ -2,7 +2,7 @@ export default {
   async fetch(request, env) {
     const url = new URL(request.url);
 
-    // 1. Handle Contact & Quote form submissions
+    // 1. Intercept the form submission endpoint
     if (url.pathname === "/api/contact") {
       const corsHeaders = {
         "Access-Control-Allow-Origin": "*",
@@ -30,6 +30,7 @@ export default {
         const message = formData.get("message") || formData.get("details") || "No message provided";
         const honeypot = formData.get("website");
 
+        // Honeypot spam trap
         if (honeypot) {
           return new Response(JSON.stringify({ success: true }), {
             headers: { ...corsHeaders, "Content-Type": "application/json" },
@@ -54,7 +55,7 @@ Sent from: integratedcraftservices.com
 
         if (!env.API_KEY) {
           return new Response(
-            JSON.stringify({ error: "API_KEY secret is not set in Cloudflare dashboard." }),
+            JSON.stringify({ error: "API_KEY secret is missing in Cloudflare settings." }),
             { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
           );
         }
@@ -83,7 +84,7 @@ Sent from: integratedcraftservices.com
           });
         }
 
-        return new Response(JSON.stringify({ success: true }), {
+        return new Response(JSON.stringify({ success: true, data: resData }), {
           status: 200,
           headers: { ...corsHeaders, "Content-Type": "application/json" },
         });
@@ -95,7 +96,7 @@ Sent from: integratedcraftservices.com
       }
     }
 
-    // 2. Serve static HTML/CSS/Images for all other routes
+    // 2. Serve static HTML/CSS/Images for everything else
     return env.ASSETS.fetch(request);
   },
 };
