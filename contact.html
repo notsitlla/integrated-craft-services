@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact Us | Integrated Craft Services</title>
@@ -41,7 +42,7 @@
     .info-item { margin-bottom: 24px; }
     .info-item strong { display: block; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); margin-bottom: 4px; }
     .info-item span { font-size: 0.95rem; color: var(--text-dark); }
-    .form-wrapper { background: #fdfdfd; border: 1px solid var(--border-light); padding: 40px; border-radius: 2px; }
+    .-wrapper { background: #fdfdfd; border: 1px solid var(--border-light); padding: 40px; border-radius: 2px; }
     .form-group { margin-bottom: 20px; }
     .form-group label { display: block; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px; }
     .form-control { width: 100%; padding: 12px 14px; font-family: inherit; font-size: 0.9rem; border: 1px solid #d1d5db; border-radius: 2px; }
@@ -97,6 +98,7 @@
 
       <div class="form-wrapper">
         <form id="contact-form">
+         
           <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off">
           <input type="hidden" name="form_type" value="Contact Page Inquiry">
 
@@ -116,6 +118,7 @@
             <label for="message">Message</label>
             <textarea id="message" name="message" class="form-control" placeholder="Tell us about your project..." required></textarea>
           </div>
+           <div class="cf-turnstile" data-sitekey="0x4AAAAAAFqej8lszAZQ1VZR" data-theme="dark"></div>
           <button type="submit" class="btn btn-primary" id="contact-submit-btn" style="width: 100%;">Send Message &rarr;</button>
         </form>
       </div>
