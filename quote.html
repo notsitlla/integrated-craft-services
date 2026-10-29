@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Project Intake &amp; Quote Request | Integrated Craft Services</title>
@@ -148,6 +149,8 @@
           <label for="details">Describe the Space &amp; Challenges</label>
           <textarea id="details" name="details" class="form-control" placeholder="Include rough dimensions, wood species preferences, existing obstacles (HVAC vents, windows, slopes), etc." required></textarea>
         </div>
+
+        <div class="cf-turnstile" data-sitekey="0x4AAAAAAFqej8lszAZQ1VZR" data-theme="dark"></div>
 
         <button type="submit" class="btn btn-primary" id="quote-submit-btn" style="width: 100%;">Submit Project for Review &rarr;</button>
       </form>
