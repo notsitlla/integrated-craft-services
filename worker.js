@@ -1,4 +1,3 @@
-
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
@@ -38,7 +37,7 @@ export default {
           });
         }
 
-        // --- Turnstile Verification (Placed before email processing) ---
+        // Turnstile Verification
         const turnstileToken = formData.get("cf-turnstile-response");
 
         if (!turnstileToken) {
@@ -67,7 +66,6 @@ export default {
             { status: 403, headers: { ...corsHeaders, "Content-Type": "application/json" } }
           );
         }
-        // ----------------------------------------------------------------
 
         const emailBody = `
 New Submission: ${formType}
@@ -132,4 +130,3 @@ Sent from: integratedcraftservices.com
     return env.ASSETS.fetch(request);
   },
 };
-
