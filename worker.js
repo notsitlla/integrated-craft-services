@@ -1,3 +1,12 @@
+That placement will break the code.
+
+The Turnstile verification block was accidentally pasted **inside the middle of the `emailBody` template string** (between the backtick `const emailBody = ` ` and `New Submission:`). In JavaScript, that treats all the Turnstile code as literal email text, and the rest of the file will fail with a syntax error.
+
+There is also a second detail: in the Resend `from:` field, it is currently set to `notifications@integratedcraftservices.com`. Because Resend verified your domain using the `send` subdomain (`send.integratedcraftservices.com`), it must use `notifications@send.integratedcraftservices.com` to prevent a `403 Domain not verified` error.
+
+Here is the clean, correctly placed version of `worker.js`:
+
+```javascript
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
@@ -37,6 +46,37 @@ export default {
           });
         }
 
+        // --- Turnstile Verification (Placed before email processing) ---
+        const turnstileToken = formData.get("cf-turnstile-response");
+
+        if (!turnstileToken) {
+          return new Response(
+            JSON.stringify({ error: "Turnstile verification failed. Please check the box." }),
+            { status: 403, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+          );
+        }
+
+        const ip = request.headers.get("CF-Connecting-IP");
+        const verifyFormData = new FormData();
+        verifyFormData.append("secret", env.TURNSTILE_SECRET_KEY);
+        verifyFormData.append("response", turnstileToken);
+        if (ip) verifyFormData.append("remoteip", ip);
+
+        const verifyRes = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
+          method: "POST",
+          body: verifyFormData,
+        });
+
+        const verifyOutcome = await verifyRes.json();
+
+        if (!verifyOutcome.success) {
+          return new Response(
+            JSON.stringify({ error: "Turnstile bot validation failed." }),
+            { status: 403, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+          );
+        }
+        // ----------------------------------------------------------------
+
         const emailBody = `
 New Submission: ${formType}
 --------------------------------------------------
@@ -67,7 +107,7 @@ Sent from: integratedcraftservices.com
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            from: "Integrated Craft Services <notifications@integratedcraftservices.com>",
+            from: "Integrated Craft Services <notifications@send.integratedcraftservices.com>",
             to: ["info@integratedcraftservices.com"],
             reply_to: email,
             subject: `[Website Inquiry] ${formType}: ${name}`,
@@ -100,3 +140,5 @@ Sent from: integratedcraftservices.com
     return env.ASSETS.fetch(request);
   },
 };
+
+```
