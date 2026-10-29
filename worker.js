@@ -1,12 +1,4 @@
-That placement will break the code.
 
-The Turnstile verification block was accidentally pasted **inside the middle of the `emailBody` template string** (between the backtick `const emailBody = ` ` and `New Submission:`). In JavaScript, that treats all the Turnstile code as literal email text, and the rest of the file will fail with a syntax error.
-
-There is also a second detail: in the Resend `from:` field, it is currently set to `notifications@integratedcraftservices.com`. Because Resend verified your domain using the `send` subdomain (`send.integratedcraftservices.com`), it must use `notifications@send.integratedcraftservices.com` to prevent a `403 Domain not verified` error.
-
-Here is the clean, correctly placed version of `worker.js`:
-
-```javascript
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
